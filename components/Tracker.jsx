@@ -1066,7 +1066,7 @@ function Sidebar({ page, setPage, pendingCount, onExportJSON, onExportCSV, onImp
   return (
     <aside className="w-[220px] shrink-0 flex flex-col fixed left-0 top-0 bottom-0 z-50" style={{ background: '#1a1814' }}>
       <div className="px-5 py-7 border-b border-white/8">
-        <div className="font-serif text-xl text-white leading-tight">La <span style={{ color: '#f0c070' }}>Lovely</span></div>
+        <div className="font-serif text-xl text-white leading-tight">Team <span style={{ color: '#f0c070' }}>94</span></div>
         <div className="text-[10px] tracking-widest uppercase mt-0.5" style={{ color: 'rgba(255,255,255,.35)' }}>Change Tracker</div>
       </div>
       <nav className="flex-1 px-3 py-3 overflow-y-auto sidebar-nav">
@@ -1111,8 +1111,8 @@ function MobileNav({ page, setPage, pendingCount }) {
 // ROOT TRACKER
 // ════════════════════════════════════════════════════════════════════════════
 export default function Tracker() {
-  const [DB, setDB, ready] = useLS('lalovely_v4', [])
-  const [goals, setGoals] = useLS('lalovely_goals', [])
+  const [DB, setDB, ready] = useLS('Team94_v4', [])
+  const [goals, setGoals] = useLS('Team94_goals', [])
   const [page, setPage] = useState('dash')
   const [reviewModal, setReviewModal] = useState(null)
   const { toasts, show: toast } = useToast()
@@ -1142,7 +1142,7 @@ export default function Tracker() {
   const exportJSON = () => {
     if (!DB.length) { toast('Tidak ada data', 'error'); return }
     const blob = new Blob([JSON.stringify({ version: 4, exported: new Date().toISOString(), data: DB }, null, 2)], { type: 'application/json' })
-    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `lalovely-${todayStr()}.json`; a.click()
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `Team94-${todayStr()}.json`; a.click()
     toast('Data berhasil diexport')
   }
 
@@ -1172,7 +1172,7 @@ export default function Tracker() {
 
   if (!ready) return (
     <div className="min-h-screen flex items-center justify-center bg-paper">
-      <div className="text-center"><div className="font-serif text-2xl text-ink mb-2">La Lovely</div><div className="text-sm text-ink-3">Memuat data...</div></div>
+      <div className="text-center"><div className="font-serif text-2xl text-ink mb-2">Team 94</div><div className="text-sm text-ink-3">Memuat data...</div></div>
     </div>
   )
 
