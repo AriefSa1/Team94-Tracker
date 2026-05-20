@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  input, select, textarea {
+    @apply w-full px-3 py-2 text-sm border border-paper-3 rounded-lg bg-paper text-ink
+           focus:outline-none focus:ring-2 focus:ring-cobalt/20 focus:border-cobalt
+           transition-all duration-150;
+    appearance: none;
+    font-family: inherit;
+  }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%239c9a94' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+    cursor: pointer;
+  }
+  textarea { resize: vertical; min-height: 72px; line-height: 1.6; }
+  label { @apply block text-xs font-semibold text-ink-2 mb-1.5 tracking-wide; }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-paper-3
+           text-sm font-semibold text-ink bg-white cursor-pointer
+           transition-all duration-150 active:scale-[.98] select-none;
+  }
+  .btn:hover { @apply bg-paper-2; }
+  .btn-primary { @apply bg-ink text-white border-transparent; }
+  .btn-primary:hover { @apply bg-ink/90 bg-none; }
+  .btn-jade { @apply bg-jade-bg text-jade-txt border-transparent; }
+  .btn-rose { @apply bg-rose text-white border-transparent; }
+  .btn-sm { @apply px-3 py-1.5 text-xs; }
+  .btn-xs { @apply px-2 py-1 text-xs; }
+
+  .card {
+    @apply bg-white border border-paper-3/80 rounded-xl p-5 shadow-card;
+  }
+  .card-title {
+    @apply text-xs font-bold tracking-widest uppercase text-ink-3 mb-4;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-0.5 rounded-full;
+  }
+  .badge-jade   { @apply bg-jade-bg text-jade-txt; }
+  .badge-rose   { @apply bg-rose-bg text-rose-txt; }
+  .badge-gold   { @apply bg-gold-bg text-gold-txt; }
+  .badge-cobalt { @apply bg-cobalt-bg text-cobalt-txt; }
+  .badge-plum   { @apply bg-plum-bg text-plum-txt; }
+  .badge-gray   { @apply bg-paper-2 text-ink-2; }
+
+  .field { @apply mb-3.5; }
+  .field:last-child { @apply mb-0; }
+}
+
+/* Sidebar scrollbar */
+.sidebar-nav::-webkit-scrollbar { width: 3px; }
+.sidebar-nav::-webkit-scrollbar-track { background: transparent; }
+.sidebar-nav::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 99px; }
